@@ -1,0 +1,18 @@
+{
+  "name": "japan-trip-planner",
+  "version": "1.0.0",
+  "description": "Japan Trip Planner - Full Stack Application",
+  "scripts": {
+    "build": "npm install --prefix 'Source Code/frontend' && npm run build --prefix 'Source Code/frontend' && npm install --prefix 'Source Code/backend' && npm run build --prefix 'Source Code/backend'",
+    "dev": "concurrently \"npm run dev --prefix 'Source Code/frontend'\" \"npm run dev --prefix 'Source Code/backend'\"",
+    "start": "npm run start --prefix 'Source Code/frontend'",
+    "vercel-build": "npm install --prefix 'Source Code/frontend' && npm run build --prefix 'Source Code/frontend'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
