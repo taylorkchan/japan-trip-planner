@@ -1,0 +1,283 @@
+design_system:
+  meta:
+    name: "Japan Trip Planner Design System"
+    version: "2.0.0"
+    created_at: "2025-12-01"
+    notes: "Extracted from Kayak.sg via live browser inspection and adapted for Japan trip planning application"
+
+  tokens:
+    breakpoint:
+      xs: 390
+      sm: 640
+      md: 768
+      lg: 1024
+      xl: 1280
+      xxl: 1536
+    container_width:
+      sm: 600
+      md: 720
+      lg: 960
+      xl: 1200
+    density:
+      comfortable: 1.0
+      compact: 0.9
+      cozy: 1.1
+    spacing:
+      base: 4
+      scale: [4, 8, 12, 16, 20, 24, 32, 48, 64]
+      responsive_multiplier:
+        xs: 1.0
+        sm: 1.0
+        md: 1.0
+        lg: 1.1
+        xl: 1.15
+        xxl: 1.2
+    radius: { none: 0, xs: 2, sm: 4, md: 8, lg: 12, xl: 16, pill: 999 }
+    elevation:
+      "0": "none"
+      "1": "0 1px 2px rgba(0,0,0,0.08)"
+      "2": "0 4px 10px rgba(0,0,0,0.10)"
+      "3": "0 10px 24px rgba(0,0,0,0.14)"
+      "4": "0 18px 40px rgba(0,0,0,0.18)"
+    motion:
+      duration: { xxfast: 80, xfast: 120, fast: 150, base: 200, slow: 300, xslow: 450 }
+      easing:
+        standard: "cubic-bezier(0.2, 0, 0, 1)"
+        entrance: "cubic-bezier(0, 0, 0, 1)"
+        exit: "cubic-bezier(0.4, 0, 1, 1)"
+        bounce: "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        decel: "cubic-bezier(0, 0, 0.2, 1)"
+        accel: "cubic-bezier(0.4, 0, 1, 1)"
+      spring:
+        soft:  { stiffness: 170, damping: 26, mass: 1 }
+        firm:  { stiffness: 260, damping: 20, mass: 1 }
+    border:
+      width: { hairline: 0.5, thin: 1, medium: 2, thick: 3 }
+      style: { default: "solid", dashed: "dashed" }
+    focus_ring:
+      outline: { width: 2, offset: 2 }
+      halo:    { spread: 4, opacity: 0.25 }
+    z_index:
+      base: 0
+      sticky: 100
+      dropdown: 1000
+      modal: 1100
+      tooltip: 1200
+      toast: 1300
+      overlay: 1400
+    typography:
+      families:
+        sans_primary: "Inter, -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+        mono: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+      scale:
+        display: { xs: 2.75rem, md: 3.25rem, lg: 3.5rem, line_height: 1.15, weight: 700, letter_spacing: -0.02em }
+        h1:      { xs: 2rem, md: 2.25rem, lg: 2.75rem, line_height: 1.27, weight: 700 }
+        h2:      { xs: 1.5rem, md: 1.75rem, lg: 2rem, line_height: 1.3, weight: 600 }
+        h3:      { xs: 1.25rem, md: 1.375rem, lg: 1.5rem, line_height: 1.35, weight: 600 }
+        body:    { xs: 1rem, md: 1rem, lg: 1rem, line_height: 1.5, weight: 400 }
+        body_sm: { xs: 0.875rem, md: 0.875rem, lg: 0.875rem, line_height: 1.45, weight: 400 }
+        caption: { xs: 0.75rem, md: 0.75rem, lg: 0.75rem, line_height: 1.3, weight: 400 }
+      weights: { regular: 400, medium: 500, semibold: 600, bold: 700 }
+    theme:
+      light:
+        surface:
+          background: "#FFFFFF"
+          raised: "#FAFBFC"
+          subtle: "#F0F3F5"
+          hover: "#F9FAFB"
+          active: "rgba(0,0,0,0.06)"
+          divider: "#E6EBEF"
+        text:
+          primary: "#192024"
+          secondary: "#5A6872"
+          inverse: "#FFFFFF"
+          placeholder: "#87969F"
+          disabled: "#87969FA0"
+        brand:
+          primary: "#F45500"
+          primary_hover: "#E04900"
+          primary_active: "#CC4200"
+          link: "#004E8E"
+          link_hover: "#003A6B"
+        feedback:
+          info: "#0077CC"
+          success: "#008A05"
+          warning: "#FFA30F"
+          error: "#CC0000"
+        borders:
+          default: "#E6EBEF"
+          strong: "#87969F"
+          focus: "#004E8E"
+        overlay:
+          scrim: "rgba(0,0,0,0.48)"
+          tooltip: "rgba(25,32,36,0.98)"
+      dark:
+        surface:
+          background: "#0E0E0E"
+          raised: "#171717"
+          subtle: "#111111"
+          hover: "rgba(255,255,255,0.08)"
+          active: "rgba(255,255,255,0.14)"
+          divider: "#2A2A2A"
+        text:
+          primary: "#F5F5F5"
+          secondary: "#BDBDBD"
+          inverse: "#0E0E0E"
+          placeholder: "rgba(255,255,255,0.50)"
+          disabled: "rgba(255,255,255,0.40)"
+        brand:
+          primary: "#FF6B1A"
+          primary_hover: "#FF7A2E"
+          primary_active: "#E55A0F"
+          link: "#5CAEF0"
+          link_hover: "#7BC1F3"
+        feedback:
+          info: "#60A5FA"
+          success: "#34D399"
+          warning: "#F59E0B"
+          error: "#F87171"
+        borders:
+          default: "#2F2F2F"
+          strong: "#444444"
+          focus: "#5CAEF0"
+        overlay:
+          scrim: "rgba(0,0,0,0.64)"
+          tooltip: "rgba(250,250,250,0.98)"
+
+  interaction:
+    transitions:
+      color: { properties: ["background-color","border-color","color"], duration: 150, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+      elevation: { properties: ["box-shadow"], duration: 200, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+      transform: { properties: ["transform"], duration: 150, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+      opacity: { properties: ["opacity"], duration: 150, easing: "cubic-bezier(0.2, 0, 0, 1)" }
+    hit_area:
+      min_touch_target: { width: 44, height: 44 }
+    cursor_map: { button: "pointer", disabled: "not-allowed", text_input: "text" }
+
+  accessibility:
+    focus_ring:
+      outline_width: 2
+      offset: 2
+      halo_spread: 4
+    reduced_motion:
+      replace_transform_with_opacity: true
+      max_duration: 150
+      disable_bounce: true
+    contrast_targets:
+      text_min: "4.5:1"
+      large_text_min: "3:1"
+      ui_component_min: "3:1"
+
+  components:
+    button:
+      role: "button"
+      aria:
+        required: []
+        optional: []
+      base:
+        height: { xs: null, md: null, lg: null }
+        padding_x: { xs: null, md: null, lg: null }
+        gap: null
+        radius: null
+        font:
+          family: ""
+          size: { xs: null, md: null, lg: null }
+          weight: null
+          line_height: null
+        border: { width: null, style: "", color: "" }
+        transitions: []
+      variants:
+        primary:
+          default: { bg: "", text: "", shadow: "", transform: "" }
+          hover: { bg: "", shadow: "", transform: "" }
+          active: { bg: "", shadow: "", transform: "" }
+          focus_visible: { ring_color: "" }
+          disabled: { bg: "", text: "", shadow: "", cursor: "" }
+        secondary:
+          default: { bg: "", text: "", border_color: "" }
+          hover: { bg: "" }
+          active: { bg: "" }
+          focus_visible: { ring_color: "" }
+          disabled: { text: "", border_color: "" }
+      micro_interactions:
+        press_feedback:
+          sequence: []
+        success_pulse:
+          keyframes: {}
+          duration: null
+          easing: ""
+
+    input_text:
+      role: "textbox"
+      aria:
+        required: []
+        optional: []
+      base:
+        height: { xs: null, md: null, lg: null }
+        radius: null
+        bg: ""
+        text_color: ""
+        placeholder_color: ""
+        border: { width: null, color: "" }
+        padding_x: { xs: null, md: null, lg: null }
+        shadow: ""
+        font: { family: "", size: null, weight: null }
+        transitions: []
+      states:
+        hover: { border_color: "" }
+        focus: { border_color: "", shadow: "" }
+        disabled: { bg: "", text_color: "" }
+
+    card:
+      role: "group"
+      base:
+        radius: null
+        bg: ""
+        shadow: ""
+        padding: { xs: null, md: null, lg: null }
+        transitions: []
+      states:
+        hover: { shadow: "", transform: "" }
+        active: { shadow: "", transform: "" }
+
+    navbar:
+      role: "navigation"
+      base:
+        height: { xs: null, md: null, lg: null }
+        bg: ""
+        border_bottom: { width: null, color: "" }
+        elevation: ""
+        sticky: { enabled: null, z_index: null }
+      search_slot:
+        preferred_width: { xs: null, md: null, lg: null }
+      actions_gap: null
+
+    footer:
+      role: "contentinfo"
+      base:
+        bg: ""
+        text_color: ""
+        padding_y: { xs: null, md: null }
+
+    tooltip:
+      base:
+        radius: null
+        padding: null
+        bg: ""
+        text_color: ""
+        elevation: ""
+        arrow_size: null
+        entry_transition:
+          from: { opacity: null, transform: "" }
+          to: { opacity: null, transform: "" }
+          duration: null
+
+  implementation:
+    css_variables:
+      prefix: ""
+      export_examples:
+        color_primary: ""
+        radius_md: ""
+        elevation_2: ""
+    responsive_rules: []
+    rtl_notes: []

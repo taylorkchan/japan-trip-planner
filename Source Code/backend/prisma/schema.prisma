@@ -1,0 +1,121 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  fullName    String?  @map("full_name")
+  avatarUrl   String?  @map("avatar_url")
+  preferences String   @default("{}")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  trips Trip[]
+
+  @@map("users")
+}
+
+model Trip {
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  title        String
+  description  String?
+  startDate    DateTime @map("start_date")
+  endDate      DateTime @map("end_date")
+  groupSize    Int      @map("group_size")
+  adults       Int
+  children     Int      @default(0)
+  infants      Int      @default(0)
+  budgetRange  String   @map("budget_range")
+  tripPace     String   @map("trip_pace")
+  preferences  String   @default("{}")
+  status       String   @default("draft")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  activities TripActivity[]
+
+  @@map("trips")
+}
+
+model Attraction {
+  id                    String   @id @default(cuid())
+  name                  String
+  nameJapanese          String?  @map("name_japanese")
+  description           String
+  category              String
+  subcategory           String?
+  locationName          String   @map("location_name")
+  prefecture            String
+  latitude              Decimal
+  longitude             Decimal
+  address               String?
+  phone                 String?
+  website               String?
+  openingHours          String?  @map("opening_hours")
+  admissionFee          String?  @map("admission_fee")
+  durationMinutes       Int?     @map("duration_minutes")
+  bestVisitTime         String?  @map("best_visit_time")
+  accessibilityFeatures String   @default("{}") @map("accessibility_features")
+  seasonalInfo          String   @default("{}") @map("seasonal_info")
+  culturalSignificance  String?  @map("cultural_significance")
+  visitorTips           String?  @map("visitor_tips")
+  photoCredits          String   @default("[]") @map("photo_credits")
+  rating                Decimal?
+  reviewCount           Int      @default(0) @map("review_count")
+  popularityScore       Int      @default(0) @map("popularity_score")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+
+  tripActivities TripActivity[]
+  images         AttractionImage[]
+
+  @@map("attractions")
+}
+
+model AttractionImage {
+  id                String   @id @default(cuid())
+  attractionId      String   @map("attraction_id")
+  imageUrl          String   @map("image_url")
+  altText           String   @map("alt_text")
+  caption           String?
+  isPrimary         Boolean  @default(false) @map("is_primary")
+  sortOrder         Int      @default(0) @map("sort_order")
+  photographerCredit String? @map("photographer_credit")
+  season            String?
+  timeOfDay         String?  @map("time_of_day")
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  attraction Attraction @relation(fields: [attractionId], references: [id], onDelete: Cascade)
+
+  @@map("attraction_images")
+}
+
+model TripActivity {
+  id                 String   @id @default(cuid())
+  tripId             String   @map("trip_id")
+  attractionId       String   @map("attraction_id")
+  dayNumber          Int      @map("day_number")
+  startTime          String?  @map("start_time")
+  estimatedDuration  Int?     @map("estimated_duration")
+  notes              String?
+  sortOrder          Int      @default(0) @map("sort_order")
+  isCustom           Boolean  @default(false) @map("is_custom")
+  customName         String?  @map("custom_name")
+  customDescription  String?  @map("custom_description")
+  status             String   @default("planned")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  trip       Trip       @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  attraction Attraction @relation(fields: [attractionId], references: [id])
+
+  @@map("trip_activities")
+}

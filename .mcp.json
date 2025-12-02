@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "guided-workflow": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/menchy/Documents/AI_Apps/SPRINT/mcp-guided-workflow-server/dist/index.js"
+      ],
+      "env": {}
+    },
+    "figma-plugin": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "/Users/menchy/Documents/AI_Apps/SPRINT/mcp-figma-server/dist/index.js"
+      ],
+      "env": {}
+    },
+    "figma-desktop": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "env": {
+        "BROWSER_URL": "http://localhost:9222"
+      }
+    }
+  }
+}

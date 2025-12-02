@@ -1,0 +1,41 @@
+{
+  "name": "japan-trip-planner",
+  "version": "1.0.0",
+  "description": "Full-stack application for planning personalized trips to Japan",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "start": "npm run start:backend",
+    "start:backend": "cd backend && npm start",
+    "db:setup": "cd backend && npx prisma db push && npx prisma generate",
+    "db:reset": "cd backend && rm -f prisma/dev.db && npx prisma db push",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting configured\" && exit 0"
+  },
+  "keywords": [
+    "japan",
+    "travel",
+    "trip-planner",
+    "react",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Japan Trip Planner Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

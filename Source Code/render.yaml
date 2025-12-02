@@ -1,0 +1,41 @@
+services:
+  # Backend API Service
+  - type: web
+    name: japan-trip-planner-backend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: USE_SUPABASE
+        value: false
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: japan-trip-planner-frontend
+          property: url
+
+  # Frontend Web App
+  - type: web
+    name: japan-trip-planner-frontend
+    env: static
+    region: oregon
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+databases:
+  # PostgreSQL Database
+  - name: japan-trip-planner-db
+    plan: free
+    region: oregon

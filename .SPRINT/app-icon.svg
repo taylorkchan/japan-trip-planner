@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E60012;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C8000F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mtFuji" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#F0F0F0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#FFE5E5;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1024" height="1024" rx="230" fill="url(#bgGrad)"/>
+  
+  <circle cx="512" cy="340" r="140" fill="url(#sunGrad)" opacity="0.95"/>
+  
+  <path d="M 280 650 L 512 380 L 744 650 Z" fill="url(#mtFuji)"/>
+  
+  <path d="M 412 520 L 512 380 L 612 520 Z" fill="#FFFFFF" opacity="0.4"/>
+  
+  <rect x="200" y="650" width="624" height="80" rx="8" fill="#FFFFFF" opacity="0.25"/>
+  <rect x="240" y="670" width="200" height="12" rx="6" fill="#FFFFFF" opacity="0.6"/>
+  <rect x="240" y="698" width="280" height="12" rx="6" fill="#FFFFFF" opacity="0.4"/>
+  
+  <circle cx="680" cy="690" r="20" fill="#FFFFFF" opacity="0.5"/>
+  <path d="M 680 678 L 680 702 M 668 690 L 692 690" stroke="#E60012" stroke-width="3" stroke-linecap="round"/>
+</svg>

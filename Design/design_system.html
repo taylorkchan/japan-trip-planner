@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Trip Planner Design System</title>
+    <style>
+        body {
+            font-family: "TT Hoves Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        h1, h2, h3 {
+            font-family: "TT Hoves Variable", sans-serif;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+        
+        .summary h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .color-swatch {
+            width: 100%;
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin-bottom: 0.5rem;
+        }
+        
+        .font-sample {
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+        
+        .button-sample {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+        
+        .btn-secondary:hover {
+            background: #f8f9fa;
+        }
+        
+        .component-demo {
+            padding: 1.5rem;
+            border: 1px dashed #ced4da;
+            border-radius: 8px;
+            margin: 1rem 0;
+            background: #fff;
+        }
+        
+        .input-sample {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+            border: 2px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 0.5rem 0;
+            transition: border-color 0.2s ease;
+        }
+        
+        .input-sample:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+        }
+        
+        .card-sample {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .card-sample:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .spacing-sample {
+            background: #e9ecef;
+            display: inline-block;
+            margin: 0.25rem;
+            text-align: center;
+            font-size: 12px;
+            color: #495057;
+            border-radius: 4px;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            color: #856404;
+        }
+        
+        .verified-badge {
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        
+        .incomplete-badge {
+            background: #ffc107;
+            color: #212529;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Japan Trip Planner Design System</h1>
+        
+        <div class="summary">
+            <h2>Design System Overview</h2>
+            <p><strong>How to interpret this page:</strong> This visual preview showcases the design tokens extracted from Kayak.com and TripIt.com for the Japan Trip Planner application. Green badges indicate verified tokens from source analysis, while yellow badges indicate common travel industry patterns that could not be verified from the reference sites.</p>
+            <p><strong>Sources:</strong> Kayak.com, TripIt.com | <strong>Extraction Method:</strong> Automated web analysis | <strong>Date:</strong> 2025-12-01</p>
+        </div>
+        
+        <div class="note">
+            <strong>Note:</strong> This design system follows the principle of "no fabrication" - only verified tokens from the source sites are included. Many fields are left blank where values could not be confirmed through web analysis.
+        </div>
+        
+        <div class="section">
+            <h2>Typography <span class="verified-badge">Verified</span></h2>
+            <p><strong>Primary Font:</strong> TT Hoves Variable (verified from Kayak.com CSS)</p>
+            <p><strong>Weight Range:</strong> 50-900 (variable font)</p>
+            <p><strong>Format:</strong> WOFF2 with font-display: swap</p>
+            
+            <div class="font-sample">
+                <h3 style="font-size: 2rem; font-weight: 700; margin: 0;">Display Heading</h3>
+                <p style="color: #666; margin: 0.25rem 0 0 0;">Large headings for hero sections</p>
+            </div>
+            
+            <div class="font-sample">
+                <h3 style="font-size: 1.5rem; font-weight: 600; margin: 0;">Section Heading</h3>
+                <p style="color: #666; margin: 0.25rem 0 0 0;">Main section titles</p>
+            </div>
+            
+            <div class="font-sample">
+                <p style="font-size: 1rem; font-weight: 400; margin: 0;">Body Text</p>
+                <p style="color: #666; margin: 0.25rem 0 0 0; font-size: 0.875rem;">Standard content text for descriptions and paragraphs</p>
+            </div>
+            
+            <div class="font-sample">
+                <p style="font-size: 0.75rem; font-weight: 400; margin: 0; color: #888;">Caption Text</p>
+                <p style="color: #666; margin: 0.25rem 0 0 0; font-size: 0.875rem;">Small text for labels and metadata</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Colors <span class="incomplete-badge">Industry Standard</span></h2>
+            <p><strong>Note:</strong> Exact color values could not be extracted from source sites. Travel industry standard colors shown for reference.</p>
+            
+            <h3>Brand Colors</h3>
+            <div class="grid">
+                <div>
+                    <div class="color-swatch" style="background: #007bff;">#007bff</div>
+                    <strong>Primary Blue</strong><br>
+                    <small>Trust & reliability for travel</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #0056b3;">#0056b3</div>
+                    <strong>Primary Dark</strong><br>
+                    <small>Hover states</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #28a745;">#28a745</div>
+                    <strong>Success Green</strong><br>
+                    <small>Confirmations</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #dc3545;">#dc3545</div>
+                    <strong>Error Red</strong><br>
+                    <small>Alerts & warnings</small>
+                </div>
+            </div>
+            
+            <h3>Neutral Colors</h3>
+            <div class="grid">
+                <div>
+                    <div class="color-swatch" style="background: #ffffff; color: #333; border: 1px solid #dee2e6;">#ffffff</div>
+                    <strong>White</strong><br>
+                    <small>Backgrounds</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #f8f9fa; color: #333;">#f8f9fa</div>
+                    <strong>Light Gray</strong><br>
+                    <small>Subtle backgrounds</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #6c757d;">#6c757d</div>
+                    <strong>Medium Gray</strong><br>
+                    <small>Secondary text</small>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #343a40;">#343a40</div>
+                    <strong>Dark Gray</strong><br>
+                    <small>Primary text</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Spacing System <span class="incomplete-badge">Industry Standard</span></h2>
+            <p><strong>Base Unit:</strong> 8px (common travel industry pattern)</p>
+            <p><strong>Scale:</strong> Incremental spacing for consistent layouts</p>
+            
+            <div style="margin: 2rem 0;">
+                <div class="spacing-sample" style="padding: 4px;">4px</div>
+                <div class="spacing-sample" style="padding: 8px;">8px</div>
+                <div class="spacing-sample" style="padding: 12px;">12px</div>
+                <div class="spacing-sample" style="padding: 16px;">16px</div>
+                <div class="spacing-sample" style="padding: 24px;">24px</div>
+                <div class="spacing-sample" style="padding: 32px;">32px</div>
+                <div class="spacing-sample" style="padding: 48px;">48px</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Component Examples</h2>
+            
+            <h3>Buttons <span class="incomplete-badge">Industry Standard</span></h3>
+            <div class="component-demo">
+                <button class="button-sample btn-primary">Search Flights</button>
+                <button class="button-sample btn-secondary">Get Started</button>
+                <button class="button-sample" style="background: #6c757d; color: white;">Disabled</button>
+            </div>
+            
+            <h3>Input Fields <span class="incomplete-badge">Industry Standard</span></h3>
+            <div class="component-demo">
+                <input type="text" class="input-sample" placeholder="Enter destination...">
+                <input type="date" class="input-sample">
+                <input type="number" class="input-sample" placeholder="Number of travelers">
+            </div>
+            
+            <h3>Cards <span class="verified-badge">Pattern Verified</span></h3>
+            <div class="component-demo">
+                <div class="card-sample">
+                    <h4 style="margin: 0 0 0.5rem 0;">Attraction Card</h4>
+                    <p style="color: #666; margin: 0;">Visual cards with hover effects for activities and destinations. Pattern observed in Kayak's quarter-card and half-card layouts.</p>
+                </div>
+                
+                <div class="card-sample">
+                    <h4 style="margin: 0 0 0.5rem 0;">Trip Plan Card</h4>
+                    <p style="color: #666; margin: 0;">Organized itinerary display with drag-and-drop capabilities for reordering activities.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Verified Design Patterns</h2>
+            <ul>
+                <li><strong>Search-first interface</strong> - Prominent search forms (Kayak pattern)</li>
+                <li><strong>Card-based layouts</strong> - Quarter, half-card, and tall quarter-card arrangements</li>
+                <li><strong>Modal interactions</strong> - Confirmed animation support (TripIt)</li>
+                <li><strong>SVG illustrations</strong> - Vector graphics for scalability</li>
+                <li><strong>Mobile-first navigation</strong> - Toggle-based responsive menus</li>
+                <li><strong>Date/time formatting</strong> - "D MMM" and "HH:mm" patterns from Kayak</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Implementation Notes</h2>
+            <div class="note">
+                <strong>Font Loading:</strong> Use TT Hoves Variable with font-display: swap for performance. Fallback to system fonts (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto).
+            </div>
+            <div class="note">
+                <strong>Responsive Design:</strong> Implement mobile-first approach with toggle navigation patterns as verified from TripIt.com.
+            </div>
+            <div class="note">
+                <strong>Accessibility:</strong> Ensure minimum 44px touch targets for mobile interactions, as standard in travel booking interfaces.
+            </div>
+        </div>
+        
+        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #dee2e6; color: #6c757d; text-align: center;">
+            <p>Japan Trip Planner Design System v2.0.0 | Generated 2025-12-01</p>
+            <p>Sources: Kayak.com, TripIt.com | Method: Automated web analysis</p>
+        </footer>
+    </div>
+</body>
+</html>
