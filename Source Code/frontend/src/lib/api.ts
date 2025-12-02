@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios'
 import type { TripPreferences } from './types'
 
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:3001'
 const DEMO_USER_ID = 'demo-user'
 
 // Create axios instance

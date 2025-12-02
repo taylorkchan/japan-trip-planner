@@ -77,7 +77,14 @@ export interface TransportRoute {
 }
 
 export interface ActivityCatalog {
-  [key in ActivityType]: Activity[]
+  temples: Activity[]
+  food: Activity[]
+  nightlife: Activity[]
+  shopping: Activity[]
+  nature: Activity[]
+  culture: Activity[]
+  museums: Activity[]
+  entertainment: Activity[]
 }
 
 // UI State Types
