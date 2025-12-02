@@ -19,13 +19,12 @@ services:
         fromService:
           type: web
           name: japan-trip-planner-frontend
-          property: url
+          property: host
 
   # Frontend Web App
   - type: web
     name: japan-trip-planner-frontend
     env: static
-    region: oregon
     plan: free
     buildCommand: cd "Source Code/frontend" && npm install && npm run build
     staticPublishPath: Source Code/frontend/dist
