@@ -25,7 +25,6 @@ services:
   - type: web
     name: japan-trip-planner-frontend
     env: static
-    plan: free
     buildCommand: cd "Source Code/frontend" && npm install && npm run build
     staticPublishPath: Source Code/frontend/dist
     routes:
