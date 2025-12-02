@@ -5,8 +5,9 @@ services:
     env: node
     region: oregon
     plan: free
-    buildCommand: cd "Source Code/backend" && npm install && npm run build
-    startCommand: cd "Source Code/backend" && npm start
+    rootDir: Source Code/backend
+    buildCommand: npm ci && npx prisma generate
+    startCommand: npm start
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
@@ -15,6 +16,12 @@ services:
         value: 10000
       - key: USE_SUPABASE
         value: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: japan-trip-planner-db
+          property: connectionString
+      - key: JWT_SECRET
+        value: super_secure_production_jwt_secret_2024_japan_trip_planner
       - key: CORS_ORIGIN
         fromService:
           type: web
@@ -25,8 +32,11 @@ services:
   - type: web
     name: japan-trip-planner-frontend
     env: static
-    buildCommand: cd "Source Code/frontend" && npm install && npm run build
-    staticPublishPath: Source Code/frontend/dist
+    region: oregon
+    plan: free
+    rootDir: Source Code/frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
