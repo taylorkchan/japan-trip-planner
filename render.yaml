@@ -32,8 +32,6 @@ services:
   - type: web
     name: japan-trip-planner-frontend
     env: static
-    region: oregon
-    plan: free
     rootDir: Source Code/frontend
     buildCommand: npm ci && npm run build
     staticPublishPath: ./dist
